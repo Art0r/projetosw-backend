@@ -162,7 +162,7 @@ class StudentsController
 
             if ($student) {
                 if (password_verify($password, $student[0]["password"])) {
-                    echo json_encode(true);
+                    echo json_encode(array('valid' => true, 'password' => $student[0]["password"]));
                     http_response_code(200);
                     exit();
                 }
